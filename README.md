@@ -1,12 +1,12 @@
-#Gertzenstein.local
+# Gertzenstein.local
 
 So we had this school-task to set up an openldap server and import all users from a really broken windows server 2003with ad on it.
 I wrote this script to get knowledge about ldap and to import those users.
 
-##What does this script?
+## What does this script?
 It takes an ldif export from what ever, puts every row in variables and writes an new clean ldif.
 
-##I have the same task from school, what do i need to do?
+## I have the same task from school, what do i need to do?
 I gonna walk you throu:
 1. Create your env. I did it with an debian 9 vm
 2. install slapd (openldap)
@@ -24,7 +24,7 @@ I gonna walk you throu:
 12. profit.
 
 
-##I have the same task from school, can you help me?
+## I have the same task from school, can you help me?
 Yes, open an issue please
 
 
