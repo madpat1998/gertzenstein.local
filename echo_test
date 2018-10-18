@@ -1,0 +1,10 @@
+#!/bin/bash
+
+
+echo "test"
+
+
+out=$1
+
+echo $out
+

@@ -1,0 +1,332 @@
+#!/bin/bash
+##################
+#
+#By Patrick H.
+#
+############
+COUNTER=1
+ldif_file=$2
+
+
+touch $ldif_file
+echo "" > $ldif_file
+
+
+#Creating
+#OUs
+echo "dn: ou=groups,dc=gertzenstein,dc=local" >> $ldif_file
+echo "changetype: add" >> $ldif_file
+echo "objectclass: top" >> $ldif_file
+echo "objectclass: organizationalUnit" >> $ldif_file
+echo "ou: groups" >> $ldif_file
+echo "" >> $ldif_file
+
+echo "dn: ou=users,dc=gertzenstein,dc=local" >> $ldif_file
+echo "changetype: add" >> $ldif_file
+echo "objectclass: top" >> $ldif_file
+echo "objectclass: organizationalUnit" >> $ldif_file
+echo "ou: users" >> $ldif_file
+echo "" >> $ldif_file
+
+echo "dn: ou=ab-2007,ou=users,dc=gertzenstein,dc=local" >> $ldif_file
+echo "changetype: add" >> $ldif_file
+echo "objectclass: top" >> $ldif_file
+echo "objectclass: organizationalUnit" >> $ldif_file
+echo "ou: ab-2007" >> $ldif_file
+echo "" >> $ldif_file
+
+echo "dn: ou=ab-2008,ou=users,dc=gertzenstein,dc=local" >> $ldif_file
+echo "changetype: add" >> $ldif_file
+echo "objectclass: top" >> $ldif_file
+echo "objectclass: organizationalUnit" >> $ldif_file
+echo "ou: ab-2008" >> $ldif_file
+echo "" >> $ldif_file
+
+echo "dn: ou=ab-2009,ou=users,dc=gertzenstein,dc=local" >> $ldif_file
+echo "changetype: add" >> $ldif_file
+echo "objectclass: top" >> $ldif_file
+echo "objectclass: organizationalUnit" >> $ldif_file
+echo "ou: ab-2009" >> $ldif_file
+echo "" >> $ldif_file
+
+echo "dn: ou=ab-2010,ou=users,dc=gertzenstein,dc=local" >> $ldif_file
+echo "changetype: add" >> $ldif_file
+echo "objectclass: top" >> $ldif_file
+echo "objectclass: organizationalUnit" >> $ldif_file
+echo "ou: ab-2010" >> $ldif_file
+echo "" >> $ldif_file
+
+echo "dn: ou=ab-2011,ou=users,dc=gertzenstein,dc=local" >> $ldif_file
+echo "changetype: add" >> $ldif_file
+echo "objectclass: top" >> $ldif_file
+echo "objectclass: organizationalUnit" >> $ldif_file
+echo "ou: ab-2011" >> $ldif_file
+echo "" >> $ldif_file
+
+echo "dn: ou=ab-2012,ou=users,dc=gertzenstein,dc=local" >> $ldif_file
+echo "changetype: add" >> $ldif_file
+echo "objectclass: top" >> $ldif_file
+echo "objectclass: organizationalUnit" >> $ldif_file
+echo "ou: ab-2012" >> $ldif_file
+echo "" >> $ldif_file
+#Lehrer
+echo "dn: cn=lehrer,ou=groups,dc=gertzenstein,dc=local" >> $ldif_file
+echo "objectClass: top" >> $ldif_file
+echo "objectClass: posixGroup" >> $ldif_file
+echo "gidNumber: 700" >> $ldif_file 
+echo "" >> $ldif_file
+#Verwaltung
+echo "dn: cn=verwaltung,ou=groups,dc=gertzenstein,dc=local" >> $ldif_file
+echo "objectClass: top" >> $ldif_file
+echo "objectClass: posixGroup" >> $ldif_file
+echo "gidNumber: 701" >> $ldif_file 
+echo "" >> $ldif_file
+#sekundar
+echo "dn: cn=sekundar,ou=groups,dc=gertzenstein,dc=local" >> $ldif_file
+echo "objectClass: top" >> $ldif_file
+echo "objectClass: posixGroup" >> $ldif_file
+echo "gidNumber: 702" >> $ldif_file 
+echo "" >> $ldif_file
+#oberstufe
+echo "dn: cn=oberstufe,ou=groups,dc=gertzenstein,dc=local" >> $ldif_file
+echo "objectClass: top" >> $ldif_file
+echo "objectClass: posixGroup" >> $ldif_file
+echo "gidNumber: 703" >> $ldif_file 
+echo "" >> $ldif_file
+#handels
+echo "dn: cn=handelsmatur,ou=groups,dc=gertzenstein,dc=local" >> $ldif_file
+echo "objectClass: top" >> $ldif_file
+echo "objectClass: posixGroup" >> $ldif_file
+echo "gidNumber: 704" >> $ldif_file 
+echo "" >> $ldif_file
+#extern
+echo "dn: cn=extern,ou=groups,dc=gertzenstein,dc=local" >> $ldif_file
+echo "objectClass: top" >> $ldif_file
+echo "objectClass: posixGroup" >> $ldif_file
+echo "gidNumber: 705" >> $ldif_file 
+echo "" >> $ldif_file
+#matur
+echo "dn: cn=matur,ou=groups,dc=gertzenstein,dc=local" >> $ldif_file
+echo "objectClass: top" >> $ldif_file
+echo "objectClass: posixGroup" >> $ldif_file
+echo "gidNumber: 705" >> $ldif_file
+echo "" >> $ldif_file
+#disabled
+echo "dn: cn=disabled,ou=groups,dc=gertzenstein,dc=local" >> $ldif_file
+echo "objectClass: top" >> $ldif_file
+echo "objectClass: posixGroup" >> $ldif_file
+echo "gidNumber: 706" >> $ldif_file
+echo "" >> $ldif_file
+
+
+while read line; do 
+    if [[ $line == "" ]]; then
+        if [[ $entry == *"objectClass: person"* ]];then
+            echo ----------------------------------------- 
+            echo START
+            echo -e $entry
+            echo $COUNTER
+            echo END
+            echo ----------------------------------------- 
+            entry=""
+            (( ++COUNTER ))
+	    #Check if entry exists
+#	    if [ grep -q -i "${givenName}.${sn}" $ldif_file ];then
+#
+#	    fi
+            #Build Ldif for User
+            echo "dn: uid=${givenName}.${sn},ou=${year},ou=users,dc=gertzenstein,dc=local" >> $ldif_file
+            echo "changetype: add" >> $ldif_file
+            echo "objectClass: top" >> $ldif_file
+            echo "objectClass: iNetOrgPerson" >> $ldif_file
+            echo "objectClass: posixAccount" >> $ldif_file
+            echo "objectClass: shadowAccount" >> $ldif_file
+            echo "cn: ${givenName}.${sn}" >> $ldif_file
+            echo "uid: ${givenName}.${sn}" >> $ldif_file
+            echo "homeDirectory: /home/users/${givenName}.${sn}" >> $ldif_file
+            echo "loginShell: /bin/bash" >> $ldif_file
+            echo "${description}" >> $ldif_file
+            echo "mail: ${mail}" >> $ldif_file
+            echo "givenName: ${givenName}" >> $ldif_file
+            echo "sn: ${sn}" >> $ldif_file
+	    COUNTER10000=$((COUNTER+10000))
+	    echo "uidNumber: ${COUNTER10000}" >> $ldif_file
+	    echo "gidNumber: ${COUNTER10000}" >> $ldif_file
+	    userPassword="${givenName}.${sn}1234"
+            echo "userPassword: ${userPassword}" >> $ldif_file
+	    if [ $disable_user == "1" ]; then
+                echo "pwdAccountLockedTime: 000001010000Z" >> $ldif_file
+            fi
+
+            echo "#special_acc: ${special_acc} for user ${givenName}.${sn}" >> $ldif_file
+            echo "" >> $ldif_file
+           
+            if [ $lehrer == "1" ];then
+                echo "dn: cn=lehrer,ou=groups,dc=gertzenstein,dc=local" >> $ldif_file
+		echo "changetype: modify" >> $ldif_file
+                echo "add: memberUid" >> $ldif_file
+		echo "memberUid: ${givenName}.${sn}" >>$ldif_file
+                echo "" >> $ldif_file
+            fi
+
+            if [ $verwaltung == "1" ];then
+                echo "dn: cn=verwaltung,ou=groups,dc=gertzenstein,dc=local" >> $ldif_file
+                echo "changetype: modify" >> $ldif_file
+                echo "add: memberUid" >> $ldif_file 
+                echo "memberUid: ${givenName}.${sn}" >>$ldif_file          
+                echo "" >> $ldif_file
+            fi      
+
+            if [ $schule == "sekundar" ];then
+                echo "dn: cn=sekundar,ou=groups,dc=gertzenstein,dc=local" >> $ldif_file
+                echo "changetype: modify" >> $ldif_file
+	        echo "add: memberUid" >> $ldif_file
+	        echo "memberUid: ${givenName}.${sn}" >>$ldif_file              
+                echo "" >> $ldif_file
+            elif [ $schule == "oberstufe" ];then
+                echo "dn: cn=oberstufe,ou=groups,dc=gertzenstein,dc=local" >> $ldif_file
+                echo "changetype: modify" >> $ldif_file
+                echo "add: memberUid" >> $ldif_file
+                echo "memberUid: ${givenName}.${sn}" >>$ldif_file
+		echo "" >> $ldif_file
+            elif [ $schule == "handelsmatur" ];then
+                echo "dn: cn=handelsmatur,ou=groups,dc=gertzenstein,dc=local" >> $ldif_file
+                echo "changetype: modify" >> $ldif_file
+                echo "add: memberUid" >> $ldif_file
+                echo "memberUid: ${givenName}.${sn}" >>$ldif_file              
+		echo "" >> $ldif_file
+
+            fi
+			if [ $user_extern == "1" ];then
+                echo "dn: cn=extern,ou=groups,dc=gertzenstein,dc=local" >> $ldif_file
+                echo "changetype: modify" >> $ldif_file
+                echo "add: memberUid" >> $ldif_file
+                echo "memberUid: ${givenName}.${sn}" >>$ldif_file
+		echo "" >> $ldif_file
+            fi
+            if [ $matur == "1" ];then
+                echo "dn: cn=matur,ou=groups,dc=gertzenstein,dc=local" >> $ldif_file
+                echo "changetype: modify" >> $ldif_file
+                echo "add: memberUid" >> $ldif_file
+                echo "memberUid: ${givenName}.${sn}" >>$ldif_file
+                echo "" >> $ldif_file
+            fi   
+
+            if [ $disable_user == "1" ];then
+                echo "dn: cn=matur,ou=groups,dc=gertzenstein,dc=local" >> $ldif_file
+                echo "changetype: modify" >> $ldif_file
+                echo "add: memberUid" >> $ldif_file
+                echo "memberUid: ${givenName}.${sn}" >>$ldif_file
+                echo "" >> $ldif_file
+            fi    
+
+
+
+        fi
+    elif [[ $line == dn:* ]];then
+        dn=$line
+        year=$(echo $line | awk -F',' '{printf $2}' | cut -f2 -d"=")
+        entry="$dn\nyear:${year}"
+    elif [[ $line == name:* ]];then
+       if echo $line | egrep '^([a-zA-Z0-9-]*):: (.*)' &> /dev/null; then
+            name=$(echo $line | awk '{printf $2}' | base64 -d; echo)
+            special_acc=1
+        else
+            name=$(echo $line | awk '{printf $2}')
+            special_acc=0
+        fi  
+          entry="${entry}\nname: ${name}"
+    elif [[ $line == givenName:* ]];then
+        if echo $line | egrep '^([a-zA-Z0-9-]*):: (.*)' &> /dev/null; then
+            givenName=$(echo $line | awk '{printf $2}' | base64 -d; echo)
+            entry="${entry}\ngivenName: ${givenName}"
+        else
+            givenName=$(echo $line | awk '{printf $2;}' )
+            entry="${entry}\ngivenName: ${givenName}"
+        fi
+    elif [[ $line == sn:* ]];then
+        if echo $line | grep -q '[0-9]';then
+            sn=$(echo $line | awk '{printf $2}' | base64 -d; echo)
+        else
+            sn=$(echo $line | awk '{printf $2}')
+        fi
+        entry="${entry}\nsn: ${sn}"
+    elif [[ $line == displayName:* ]];then
+        if echo $line | egrep '^([a-zA-Z0-9-]*):: (.*)' &> /dev/null; then
+            displayName=$(echo $line | awk '{printf $2}' | base64 -d; echo)
+
+        else
+            displayName=$(echo $line | awk '{printf $2}')
+        fi
+        entry="${entry}\ndisplayName: ${displayName}"
+    elif [[ $line == description:* ]];then
+        if echo $line | grep -q '[0-9]';then
+            description=$(echo $line | awk '{printf $2}' | base64 -d; echo)
+	    description="description: ${description}"
+        else
+            description=$(echo $line)
+        fi
+        entry="${entry}\n${description}"
+        if [[ $description == *extern* ]];then
+            user_extern=1
+        else
+            user_extern=0
+        fi
+        if [[ $description == *"deaktiviert"* ]];then
+            disable_user=1
+        else
+            disable_user=0
+        fi
+        if [[ $description == *"Lehrer"* ]];then
+            lehrer=1
+        else
+            lehrer=0
+        fi
+        if [[ $description == *"Sekundar"* ]];then
+            schule="sekundar"
+        elif [[ $description == *"Oberstufe"* ]];then
+            schule="oberstufe"
+        elif [[ $description == *"Handelsmatur"* ]];then
+            schule="handelsmatur"
+        fi
+        if [[ $description == *"Verwaltung"* ]];then
+            verwaltung=1
+        else
+            verwaltung=0
+        fi
+		if [[ $description == *"- Matur"* ]];then
+			matur=1
+		else
+			matur=0
+		fi
+        entry="${entry}\ndisabled_user:${disable_user}\nuser_extern:${user_extern}"
+        entry="${entry}\nlehrer:${lehrer}\nschule:${schule}\nverwaltung:${verwaltung}"
+    elif [[ $line == proxyAddresses:* ]];then
+        mail=$(echo $line | awk '{printf $2}' | cut -d ':' -f2)
+        entry="${entry}\nmail: ${mail}"
+    elif [[ $line == "objectClass: person" ]];then
+        entry="${entry}\n${line}"
+    fi
+
+done < $1
+
+#Testing
+echo "Starting Tests"
+echo "=============="
+#Unicode Check
+echo "Listing special Accounts that may need to be purged"
+echo "and then created manualy"
+echo "=============="
+grep "special_acc: 1" $2
+echo "=============="
+echo "Listing accounts that may have forbidden characters in name"
+egrep '[^A-Za-z0-9:@.,_#/= \-]+' $2
+#Check duplicates
+echo "=============="
+echo "Searching for duplicates"
+grep -i "cn:" $ldif_file | uniq -dc
+echo "Those are duplicates, please engage the conflict"
+echo "=============="
+
+#End
+

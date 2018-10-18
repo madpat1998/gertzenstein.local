@@ -1,0 +1,5 @@
+dn: ou=Policies,dc=gertzenstein,dc=local
+objectClass: top
+objectClass: organizationalUnit
+ou: Policies
+

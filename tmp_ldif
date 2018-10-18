@@ -1,0 +1,122 @@
+dn: CN=ian.aydin,OU=ab-2007,OU=Schule und Benutzer,DC=gertzenstein,DC=local
+changetype: add
+objectClass: top
+objectClass: person
+objectClass: organizationalPerson
+objectClass: user
+cn: ian.aydin
+sn: Aydin
+description: Ian Aydin, Sekundar
+givenName: Ian
+distinguishedName: 
+ CN=ian.aydin,OU=ab-2007,OU=Schule und Benutzer,DC=gertzenstein,DC=local
+instanceType: 4
+whenCreated: 20130124173010.0Z
+whenChanged: 20130124173010.0Z
+displayName: Ian Aydin
+uSNCreated: 172497
+memberOf: CN=ADixDL1,OU=Schule und Benutzer,DC=gertzenstein,DC=local
+memberOf: CN=ADixGroup1,OU=Schule und Benutzer,DC=gertzenstein,DC=local
+uSNChanged: 172509
+proxyAddresses: SMTP:ian.aydin@mail.xyz
+name: ian.aydin
+objectGUID:: AiLMsU155EinxZvqoiVp+w==
+userAccountControl: 544
+badPwdCount: 0
+codePage: 0
+countryCode: 0
+badPasswordTime: 0
+lastLogoff: 0
+lastLogon: 0
+pwdLastSet: 0
+primaryGroupID: 513
+objectSid:: AQUAAAAAAAUVAAAAo+mx+vNu+dpJzu19Ni4AAA==
+accountExpires: 9223372036854775807
+logonCount: 0
+sAMAccountName: ian.aydin
+sAMAccountType: 805306368
+userPrincipalName: ian.aydin@mail.xyz
+objectCategory: CN=Person,CN=Schema,CN=Configuration,DC=gertzenstein,DC=local
+
+dn: CN=zoé.mack,OU=ab-2010,OU=Schule und Benutzer,DC=gertzenstein,DC=local
+changetype: add
+objectClass: top
+objectClass: person
+objectClass: organizationalPerson
+objectClass: user
+cn:: em/DqS5tYWNr
+sn: Mack
+description:: TWFjayBab8OpLCBPYmVyc3R1ZmUgZXh0ZXJu
+givenName:: Wm/DqQ==
+distinguishedName:: 
+ Q049em/DqS5tYWNrLE9VPWFiLTIwMTAsT1U9U2NodWxlIHVuZCBCZW51dHplcixEQz1nZXJ0emVuc3
+ RlaW4sREM9bG9jYWw=
+instanceType: 4
+whenCreated: 20130124173450.0Z
+whenChanged: 20130124173450.0Z
+displayName:: TWFjayBab8Op
+uSNCreated: 194781
+memberOf: CN=ADixDL1,OU=Schule und Benutzer,DC=gertzenstein,DC=local
+memberOf: CN=ADixGroup1,OU=Schule und Benutzer,DC=gertzenstein,DC=local
+uSNChanged: 194793
+proxyAddresses: SMTP:z.mack@mail.xyz
+name:: em/DqS5tYWNr
+objectGUID:: XhGEHotVgUiCjyBY56ksKQ==
+userAccountControl: 544
+badPwdCount: 0
+codePage: 0
+countryCode: 0
+badPasswordTime: 0
+lastLogoff: 0
+lastLogon: 0
+pwdLastSet: 0
+primaryGroupID: 513
+objectSid:: AQUAAAAAAAUVAAAAo+mx+vNu+dpJzu19bTQAAA==
+accountExpires: 9223372036854775807
+logonCount: 0
+sAMAccountName:: em/DqS5tYWNr
+sAMAccountType: 805306368
+userPrincipalName: z.mack@mail.xyz
+objectCategory: CN=Person,CN=Schema,CN=Configuration,DC=gertzenstein,DC=local
+
+dn: CN=andré.bruns,OU=ab-2007,OU=Schule und Benutzer,DC=gertzenstein,DC=local
+changetype: add
+objectClass: top
+objectClass: person
+objectClass: organizationalPerson
+objectClass: user
+cn:: YW5kcsOpLmJydW5z
+sn: Bruns
+description:: QW5kcsOpIEJydW5zLCBMZWhyZXIgU2VrdW5kYXI=
+givenName:: QW5kcsOp
+distinguishedName::
+ Q049YW5kcsOpLmJydW5zLE9VPWFiLTIwMDcsT1U9U2NodWxlIHVuZCBCZW51dHplcixEQz1nZXJ0em
+ Vuc3RlaW4sREM9bG9jYWw=
+instanceType: 4
+whenCreated: 20130124173053.0Z
+whenChanged: 20130124173053.0Z
+displayName:: QW5kcsOpIEJydW5z
+uSNCreated: 176251
+memberOf: CN=ADixDL1,OU=Schule und Benutzer,DC=gertzenstein,DC=local
+memberOf: CN=ADixGroup1,OU=Schule und Benutzer,DC=gertzenstein,DC=local
+uSNChanged: 176263
+proxyAddresses: SMTP:andre.bruns@mail.xyz
+name:: YW5kcsOpLmJydW5z
+objectGUID:: JA7Nv1utYEm7DcH2i/x04Q==
+userAccountControl: 544
+badPwdCount: 0
+codePage: 0
+countryCode: 0
+badPasswordTime: 0
+lastLogoff: 0
+lastLogon: 0
+pwdLastSet: 0
+primaryGroupID: 513
+objectSid:: AQUAAAAAAAUVAAAAo+mx+vNu+dpJzu19Qi8AAA==
+accountExpires: 9223372036854775807
+logonCount: 0
+sAMAccountName:: YW5kcsOpLmJydW5z
+sAMAccountType: 805306368
+userPrincipalName: andre.bruns@mail.xyz
+objectCategory: CN=Person,CN=Schema,CN=Configuration,DC=gertzenstein,DC=local
+
