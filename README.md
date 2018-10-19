@@ -23,7 +23,7 @@ I gonna walk you throu:
 9. cd into the ppolicy folder and execute import.sh
 10. use dos2unix to convert the ldf file from windows (due to new characters that are somewhat tricky)
 	1. save a copy of your exportfile
-	2. ```dos2unix ${exportfke}``` 
+	2. ```dos2unix ${exportfile}``` 
 11. execute the ldif_parser 
 	1. ```./ldif_parser {convertet ldif file} {output file}```
 12. read the last few lines from the script and alter the entries that show here (doubled entries,entries with unicode,entries with other characters)
