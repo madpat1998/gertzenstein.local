@@ -29,7 +29,7 @@ I gonna walk you throu:
 12. read the last few lines from the script and alter the entries that show here (doubled entries,entries with unicode,entries with other characters)
 13. import the outputfile with ldapadd
 	1. ```ldapadd -x -D "cn=admin,dc=gertzenstein,dc=local" -w PASSWORD -H ldap:// -f ${outputfile of ldif_parser}```
-14. profit.
+14. profit. try to login now. Password are: ${uid}1234 so for example Linda.Berger1234
 15. You may now also have to install a third party app that logins via ldap. For that i would suggest nextcloud.
 
 ## I have the same task from school, can you help me?
