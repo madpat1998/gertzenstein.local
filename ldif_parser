@@ -195,9 +195,8 @@ while read line; do
                 echo "add: memberUid" >> $ldif_file
                 echo "memberUid: ${givenName}.${sn}" >>$ldif_file              
 		echo "" >> $ldif_file
-
             fi
-			if [ $user_extern == "1" ];then
+		if [ $user_extern == "1" ];then
                 echo "dn: cn=extern,ou=groups,dc=gertzenstein,dc=local" >> $ldif_file
                 echo "changetype: modify" >> $ldif_file
                 echo "add: memberUid" >> $ldif_file
