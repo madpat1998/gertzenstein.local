@@ -13,7 +13,7 @@ I gonna walk you throu:
 3. install phpldapadmin if you need to (we had to)
 4. get an ldif from the windows server
 	1. open cmd on the windows server
-	2. type: ```ldifde -f export.ldf -s GERTZENSTEIN -d "dc=gertzenstein,dc=local" -p subtree
+	2. type: ```ldifde -f export.ldf -s GERTZENSTEIN -d "dc=gertzenstein,dc=local" -p subtree```
 5. get the file to the linux server (i prefer winscp or via samba)
 6. clone this repo
 7. reconfigure your slapd: (```dpkg-reconfigure slapd```) and make sure you have the following options:
