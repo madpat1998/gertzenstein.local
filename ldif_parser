@@ -212,7 +212,7 @@ while read line; do
             fi   
 
             if [ $disable_user == "1" ];then
-                echo "dn: cn=matur,ou=groups,dc=gertzenstein,dc=local" >> $ldif_file
+                echo "dn: cn=disabled,ou=groups,dc=gertzenstein,dc=local" >> $ldif_file
                 echo "changetype: modify" >> $ldif_file
                 echo "add: memberUid" >> $ldif_file
                 echo "memberUid: ${givenName}.${sn}" >>$ldif_file
