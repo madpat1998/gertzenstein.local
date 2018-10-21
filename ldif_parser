@@ -117,6 +117,12 @@ echo "objectClass: top" >> $ldif_file
 echo "objectClass: posixGroup" >> $ldif_file
 echo "gidNumber: 706" >> $ldif_file
 echo "" >> $ldif_file
+#nextcloud
+echo "dn: cn=nextcloud,ou=groups,dc=gertzenstein,dc=local" >> $ldif_file
+echo "objectClass: top" >> $ldif_file
+echo "objectClass: posixGroup" >> $ldif_file
+echo "gidNumber: 707" >> $ldif_file
+echo "" >> $ldif_file
 
 
 while read line; do 
@@ -152,10 +158,10 @@ while read line; do
 	    COUNTER10000=$((COUNTER+10000))
 	    echo "uidNumber: ${COUNTER10000}" >> $ldif_file
 	    echo "gidNumber: ${COUNTER10000}" >> $ldif_file
-	    userPassword="${givenName}.${sn}1234"
-            echo "userPassword: ${userPassword}" >> $ldif_file
 	    if [ $disable_user == "1" ]; then
                 echo "pwdAccountLockedTime: 000001010000Z" >> $ldif_file
+	    else
+	    	echo "userPassword: ${givenName}.${sn}1234" >> $ldif_file
             fi
 
             echo "#special_acc: ${special_acc} for user ${givenName}.${sn}" >> $ldif_file
@@ -215,9 +221,16 @@ while read line; do
                 echo "dn: cn=disabled,ou=groups,dc=gertzenstein,dc=local" >> $ldif_file
                 echo "changetype: modify" >> $ldif_file
                 echo "add: memberUid" >> $ldif_file
-                echo "memberUid: ${givenName}.${sn}" >>$ldif_file
+                echo "memberUid: ${givenName}.${sn}" >> $ldif_file
                 echo "" >> $ldif_file
-            fi    
+	    else 
+		echo "dn: cn=nextcloud,ou=groups,dc=gertzenstein,dc=local" >> $ldif_file
+		echo "changetype: modify" >> $ldif_file
+		echo "add: memberUid" >> $ldif_file
+		echo "memberUid: ${givenName}.${sn}">> $ldif_file
+		echo "" >> $ldif_file
+            fi
+
 
 
 
