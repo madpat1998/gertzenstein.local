@@ -3,7 +3,7 @@
 #
 #By Patrick H.
 #
-############
+#############
 COUNTER=1
 ldif_file=$2
 
